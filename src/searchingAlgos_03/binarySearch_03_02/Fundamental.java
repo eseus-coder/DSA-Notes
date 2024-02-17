@@ -62,9 +62,8 @@ public class Fundamental {
         int endPoint = arrayInput.length - 1;
 
         while(startPoint<=endPoint){
-//            int midPoint = ((startPoint + endPoint) / 2);
 
-            //Better to get the middle element
+            //Better way to get the middle element
             int midPoint = startPoint + ((endPoint - startPoint)/2);
 
             if (arrayInput[midPoint] == target){
