@@ -14,11 +14,11 @@ public class Leetcode_33 {
         int[] nums = {3,1};
         int target = 1;
 
-        System.out.println(firstApproach(nums, target));
+        System.out.println(distinctValuedArray(nums, target));
     }
 
-    //The elaborative approach
-    static int firstApproach(int[] arr, int target) {
+    //The elaborative approach: Refer the notebook notes
+    static int distinctValuedArray(int[] arr, int target) {
 
         int startIndex = 0;
         int endIndex = arr.length - 1;
@@ -30,71 +30,76 @@ public class Leetcode_33 {
         //So we can say that the pivot is the max element of the array
         int peakIndex = peakIndexInArray(arr);
 
-        //Find on the left side of the peak
-        int foundOnTargetIndex = binarySearchIncreasingSorted(arr, target, startIndex, peakIndex);
-
-        //Find on the right side of the peak
-        if(foundOnTargetIndex < 0){
-            foundOnTargetIndex = binarySearchIncreasingSorted(arr, target, peakIndex, endIndex);
+        if (peakIndex == -1) {
+            //Doing a normal b.s because the array is not rotated
+            return(binarySearchIncreasingSorted(arr, target, startIndex, endIndex));
         }
 
-        return foundOnTargetIndex;
+        //if the pivot index that we found, we need to check whether the pivot itself is the target search
+        //or not
+        if (arr[peakIndex] == target) {
+            return peakIndex;
+        }
+
+        int foundTargetIndex = -1;
+
+        //Find on the left side of the peak
+        foundTargetIndex = (binarySearchIncreasingSorted(arr, target, startIndex, peakIndex - 1));
+
+        //Find on the right side of the peak
+        if (foundTargetIndex == -1) {
+            foundTargetIndex = (binarySearchIncreasingSorted(arr, target, peakIndex + 1, endIndex));
+        }
+
+        return foundTargetIndex;
     }
 
     //Can refer Leetcode_852
+    //Refer the notebook notes
     static int peakIndexInArray(int[] arr){
-        int result = -1;
-
         int startIndex = 0;
         int endIndex = arr.length - 1;
 
-        //We are not using the <= condition here, because when the start and index are on the same element, that itself is the answer
-        //we dont need to check after that
-        //startIndex and endIndex are always trying to find the max element in the below 2 checks(from both the ends
-        //hence when they are pointing to just one element, that is when we know we have found the peak
-        while(startIndex<endIndex){
+        while(startIndex<=endIndex){
             int middleIndex = startIndex + (endIndex - startIndex) / 2; //Finding middle index
-            int middle = arr[middleIndex]; //Middle element
-            int middleForward = arr[middleIndex + 1]; //Element next to middle (not previous)
 
-            //If the element next to the middle is greater, we know that the peak element is on the right
-            if (middleForward > middle) {
-                startIndex = middleIndex + 1;
+            //Case 1
+            //middleIndex < endIndex : to prevent from array out of bound exception
+            if (middleIndex < endIndex && arr[middleIndex] > arr[middleIndex + 1]) { //Next element to middle
+                return middleIndex;
             }
-            //If the element next to the middle, is actually less than the middle, then we know that the peak element will be on the left
-            //Why is endIndex = middleIndex? and not endIndex = middleIndex - 1? like in the binary search algo?
-            //--- Because we are not sure whether the endIndex = middleIndex - 1 element is greater than the middle element as of now
-            //  --- Than why are we doing startIndex = middleIndex + 1;(?), why are we sure there? simply because we already
-            //  --- verified it here middleForward > middle. (How?) Because middleForward = middleIndex + 1.
-            if (middleForward < middle) {
-                endIndex = middleIndex;
+
+            //Case 2
+            //middleIndex > startIndex : to prevent from array out of bound exception
+            if (middleIndex > startIndex && arr[middleIndex] < arr[middleIndex - 1]) { //Previous element to middle
+                return middleIndex - 1;
+            }
+
+            //Case 3
+            if (arr[middleIndex] > arr[startIndex]) { //Middle element and start element
+                startIndex = middleIndex + 1;
+            } else { //Case 4
+                endIndex = middleIndex - 1;
             }
         }
 
-        //Here startIndex == endIndex, and pointing towards the largest element because of the 2 checks above
-        return startIndex;
+        return -1;
     }
 
-    static int binarySearchIncreasingSorted(int[] arrayInput, int target, int startIndex, int peakIndex){
-        int startPoint = startIndex;
-        int endPoint = peakIndex;
+    static int binarySearchIncreasingSorted(int[] arr, int target, int start, int end){
 
-        while(startPoint<=endPoint){
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
 
-            //Better way to get the middle element
-            int midPoint = startPoint + ((endPoint - startPoint)/2);
-
-            if (arrayInput[midPoint] == target){
-                return midPoint;
+            if (target > arr[mid]){
+                start = mid + 1;
+            } else if (target < arr[mid]) {
+                end = mid - 1;
+            } else{
+                return mid;
             }
 
-            if (target > arrayInput[midPoint]){
-                startPoint = midPoint + 1;
-            } else if (target < arrayInput[midPoint]) {
-                endPoint = midPoint - 1;
-            }
         }
-
         return -1;
 
     }
