@@ -51,7 +51,6 @@ public class Leetcode_81 {
         return foundTargetIndex;
     }
 
-    //Can refer Leetcode_852
     //Refer the notebook notes
     static int peakIndexInArray(int[] arr){
         int startIndex = 0;

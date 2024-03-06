@@ -11,7 +11,7 @@ package searchingAlgos_03.binarySearch_03_02;
 public class Leetcode_33 {
     public static void main(String[] args) {
 
-        int[] nums = {3,1};
+        int[] nums = {1,2,3,4,5,6,7,8};
         int target = 1;
 
         System.out.println(distinctValuedArray(nums, target));
@@ -54,7 +54,6 @@ public class Leetcode_33 {
         return foundTargetIndex;
     }
 
-    //Can refer Leetcode_852
     //Refer the notebook notes
     static int peakIndexInArray(int[] arr){
         int startIndex = 0;
