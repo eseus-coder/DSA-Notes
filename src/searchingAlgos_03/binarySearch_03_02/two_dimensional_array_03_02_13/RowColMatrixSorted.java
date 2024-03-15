@@ -1,5 +1,6 @@
 package searchingAlgos_03.binarySearch_03_02.two_dimensional_array_03_02_13;
 //We are assumin here that the matrix is in sorted manner both row-wise and column wise
+//(THIS IS NOT A PURE SORTED ARRAY)
 //E.G: {
 // {10, 20, 30, 40},
 // {15, 25, 35, 45},
@@ -7,6 +8,17 @@ package searchingAlgos_03.binarySearch_03_02.two_dimensional_array_03_02_13;
 // {35, 45, 55, 65}
 // }
 
+//FOR PURE SORTED ARRAY
+//Each row is sorted in non-decreasing order.
+//The first integer of each row is greater than the last integer of the previous row.
+/*
+* E.G:
+* [
+*   [1,3,5,7],
+*   [10,11,16,20],
+*   [23,30,34,60]
+* ]
+* */
 
 import java.util.Arrays;
 
@@ -22,7 +34,7 @@ public class RowColMatrixSorted {
     }
 
     //Approach without binary search (Refer notebook for analysis)
-    //We did not make use of midpoint and so, therefor we can still improve upon this
+    //(THIS IS NOT A PURE SORTED ARRAY)
     static int[] searchInSortedMatrix(int[][]arr, int target){
 
         if (arr.length == 0 ){
