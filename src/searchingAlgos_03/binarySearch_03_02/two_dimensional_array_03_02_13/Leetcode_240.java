@@ -1,5 +1,6 @@
 package searchingAlgos_03.binarySearch_03_02.two_dimensional_array_03_02_13;
 //https://leetcode.com/problems/search-a-2d-matrix-ii/description/
+//(Refer notebook for analysis)
 //We are assuming here that the matrix is in sorted manner both row-wise and column wise
 //(THIS IS NOT A PURE SORTED ARRAY)
 //E.G: {
@@ -8,18 +9,6 @@ package searchingAlgos_03.binarySearch_03_02.two_dimensional_array_03_02_13;
 // {25, 35, 45, 55},
 // {35, 45, 55, 65}
 // }
-
-//FOR PURE SORTED ARRAY
-//Each row is sorted in non-decreasing order.
-//The first integer of each row is greater than the last integer of the previous row.
-/*
-* E.G:
-* [
-*   [1,3,5,7],
-*   [10,11,16,20],
-*   [23,30,34,60]
-* ]
-* */
 
 public class Leetcode_240 {
     public static void main(String[] args) {
@@ -37,7 +26,7 @@ public class Leetcode_240 {
         System.out.println(searchInSortedMatrix(arrayNumbers, target));
     }
 
-    //Approach without binary search (Refer notebook for analysis)
+    //Approach without binary search
     //(THIS IS NOT A PURE SORTED ARRAY)
 
     //If want to return index where the element is
