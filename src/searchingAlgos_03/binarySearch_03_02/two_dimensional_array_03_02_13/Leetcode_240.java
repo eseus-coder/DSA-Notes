@@ -1,5 +1,6 @@
 package searchingAlgos_03.binarySearch_03_02.two_dimensional_array_03_02_13;
-//We are assumin here that the matrix is in sorted manner both row-wise and column wise
+//https://leetcode.com/problems/search-a-2d-matrix-ii/description/
+//We are assuming here that the matrix is in sorted manner both row-wise and column wise
 //(THIS IS NOT A PURE SORTED ARRAY)
 //E.G: {
 // {10, 20, 30, 40},
@@ -20,9 +21,7 @@ package searchingAlgos_03.binarySearch_03_02.two_dimensional_array_03_02_13;
 * ]
 * */
 
-import java.util.Arrays;
-
-public class RowColMatrixSorted {
+public class Leetcode_240 {
     public static void main(String[] args) {
         int[][] arrayNumbers = {
                                  {1, 3, 5, 7},
@@ -30,15 +29,30 @@ public class RowColMatrixSorted {
                                  {23,30,34,60},
                             };
         int target = 3;
-        System.out.println(Arrays.toString(searchInSortedMatrix(arrayNumbers, target)));
+
+        //If want to return index where the element is
+//        System.out.println(Arrays.toString(searchInSortedMatrix(arrayNumbers, target)));
+
+        //If want to just check whether the target exists or not
+        System.out.println(searchInSortedMatrix(arrayNumbers, target));
     }
 
     //Approach without binary search (Refer notebook for analysis)
     //(THIS IS NOT A PURE SORTED ARRAY)
-    static int[] searchInSortedMatrix(int[][]arr, int target){
+
+    //If want to return index where the element is
+//    static int[] searchInSortedMatrix(int[][]arr, int target){
+
+    //If want to just check whether the target exists or not
+    static boolean searchInSortedMatrix(int[][]arr, int target){
 
         if (arr.length == 0 ){
-            return new int[]{-1, -1};
+
+            //If want to return index where the element is
+//            return new int[]{-1, -1};
+
+            //If want to just check whether the target exists or not
+            return false;
         }
 
         int startPoint = 0; //Basically the first element in the matrix
@@ -46,7 +60,12 @@ public class RowColMatrixSorted {
 
         while(startPoint < arr.length && endPoint >= 0){
                 if (target == arr[startPoint][endPoint]) {
-                    return new int[]{startPoint, endPoint};
+
+                    //If want to return index where the element is
+//                    return new int[]{startPoint, endPoint};
+
+                    //If want to just check whether the target exists or not
+                    return true;
                 }
 
                 if (target < arr[startPoint][endPoint]){
@@ -62,6 +81,10 @@ public class RowColMatrixSorted {
                 }
         }
 
-        return new int[]{-1, -1};
+        //If want to return index where the element is
+//        return new int[]{-1, -1};
+
+        //If want to just check whether the target exists or not
+        return false;
     }
 }
