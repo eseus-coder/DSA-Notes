@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class VariableArgs {
     public static void main(String[] args) {
         fun(1,3,4,4,6,7,87,87,869,90);
-        fun2(10,20,"Arindam", "Bose", "Aaron", "Eseus");
+        fun2(10,20,"ABC", "XYZ", "QUV", "STW");
     }
 
     private static void fun2(int i, int i1, String ...eseus) {

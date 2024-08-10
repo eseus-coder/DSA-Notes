@@ -7,8 +7,8 @@ public class OccurrencesInNumber {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int inputToCount = input.nextInt(); //This takes the digit whose occurrence is to be counted
         int inputFromCount = input.nextInt(); //This takes the number
+        int inputToCount = input.nextInt(); //This takes the digit whose occurrence is to be counted
         int temp = inputFromCount; //Just storing it for output otherwise not required
 
         int count = 0; //To keep the number of occurrences counted

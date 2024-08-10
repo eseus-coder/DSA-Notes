@@ -26,10 +26,10 @@ public class ArmstrongNumber {
         int sum = 0;
 
         while(n>0){
-            int remainder = n%10;
-            n = n / 10;
-            int cube = remainder * remainder * remainder;
-            sum += cube;
+            int remainder = n%10; //took out the last digit
+            n = n / 10; //updated the number
+            int cube = remainder * remainder * remainder; //cubed
+            sum += cube; //cubed sum
 
         }
 

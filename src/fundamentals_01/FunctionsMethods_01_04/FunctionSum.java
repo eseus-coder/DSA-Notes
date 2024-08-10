@@ -28,7 +28,7 @@ public class FunctionSum {
 
     /*
     Syntax of Functions/Methods:-
-      access modifier return_type fundtion_name(arguments){
+      access_modifier return_type function_name(arguments){
         //Body
         return statement;
       }

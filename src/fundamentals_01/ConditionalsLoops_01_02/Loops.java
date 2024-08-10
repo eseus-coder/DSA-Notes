@@ -4,7 +4,7 @@ public class Loops {
     public static void main(String[] args) {
         //For Loops
         /*
-            for(initialisation; cnodition; increment/decrement){
+            for(initialisation; condition; increment/decrement){
                 //body
             }
         */

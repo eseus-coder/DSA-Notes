@@ -5,7 +5,7 @@ import java.util.Arrays;
 //Java as a language is only and always Pass by Value and never pass by reference
 public class PassByValue {
     public static void main(String[] args) {
-        String name = "Arindam Bose";
+        String name = "XYZ ABC";
         System.out.println("Name::" + name);
 
         //But if we are to modify an object than it will be reflected
@@ -20,7 +20,7 @@ public class PassByValue {
     }
 
     static void passByValue(String name) {
-        name = "Aaron Eseus"; //It is creating a new object
+        name = "QST UVW"; //It is creating a new object
         System.out.println("Name::" + name);
     }
 }

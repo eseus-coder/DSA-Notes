@@ -12,7 +12,7 @@ public class Primitives {
         boolean check = true;
 
         //Not primitives
-        String name = "Arindam";
+        String name = "XYZ";
 
         //Wrapper: is used to get additional functionalities which are not there in primitives
         //will be covered in oops
